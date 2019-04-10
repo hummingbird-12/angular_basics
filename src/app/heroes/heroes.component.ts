@@ -1,7 +1,7 @@
 // Component symbol is always imported from Angular core library
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
+import { HeroService } from '../hero.service';
 
 // @Component : decor function with metadata of the component
 @Component({
@@ -12,21 +12,23 @@ import { HEROES } from '../mock-heroes';
 
 // Always export the component class
 export class HeroesComponent implements OnInit {
-  myHero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
-  heroes = HEROES;
+  heroes: Hero[];
   selectedHero: Hero;
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
 
-  constructor() { }
+  getHeroes(): void {
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);
+  }
+
+  constructor(private heroService: HeroService) { }
 
   // Lifecycle hook, called shortly after creating the component
   ngOnInit() {
+    this.getHeroes();
   }
 
 }
