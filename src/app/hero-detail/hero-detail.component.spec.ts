@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeroDetailComponent } from './hero-detail.component';
 
+
 describe('HeroDetailComponent', () => {
   let component: HeroDetailComponent;
   let fixture: ComponentFixture<HeroDetailComponent>;
@@ -10,7 +11,7 @@ describe('HeroDetailComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ HeroDetailComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
