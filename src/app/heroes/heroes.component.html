@@ -1,4 +1,13 @@
 <h2>My Heroes</h2>
+<div>
+  <label>Hero name:
+    <input #heroName/>
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
 <!-- The list will be filled by Angular's repeater directive -->
 <ul class="heroes">
   <!-- <li> is the host element -->
@@ -7,5 +16,8 @@
       <!-- heroes is the list, hero holds current hero object -->
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
+    <button class="delete" title="delete hero"
+            (click)="delete(hero)">X
+    </button>
   </li>
 </ul>
